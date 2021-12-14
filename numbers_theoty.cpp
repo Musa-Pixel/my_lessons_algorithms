@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
+typedef long long ll;
 int gcd(int a, int b) { // алгоритм Евклида
 	/*
         Алгоритм нахождения наибольшего общего
@@ -24,7 +24,7 @@ int lcm(int a, int b) {
     return a * b / gcd(a, b);
 }
 
-bool isPrime(int n) { 
+bool is_prime(int n) { 
     // O(sqrt(n))
     if (n == 1) return 0;
     for (int i = 2; i * i <= n; i++) {
@@ -33,6 +33,18 @@ bool isPrime(int n) {
     }
     return 1;
 }
+
+bool is_prime2(ll a) {
+	if (a == 2 || a == 3) return true;
+	if (a % 2 == 0 || a % 3 == 0) return false;
+	for (ll i = 5; i * i <= a; i += 6) {
+		if (a % i == 0 || a % (i + 2) == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
 
 vector<bool> resheto(int n) { // решето Эратосфена
     /*
